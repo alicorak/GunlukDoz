@@ -2,15 +2,36 @@ import * as React from "react";
 import { Text, View } from "react-native";
 import { createStackNavigator } from "@react-navigation/stack";
 import DetailScreen from "./DetailScreen";
+import { Information } from "../components/Icons";
 
-const ProfileeStack = createStackNavigator();
+const ProfileStack = createStackNavigator();
 
 function ProfileStackScreen() {
   return (
-    <ProfileeStack.Navigator>
-      <ProfileeStack.Screen name="Profil" component={ProfileScreen} />
-      <ProfileeStack.Screen name="Detail" component={DetailScreen} />
-    </ProfileeStack.Navigator>
+    <ProfileStack.Navigator
+      headerMode="screen"
+      screenOptions={{
+        headerTintColor: "#F9FFDE",
+        headerStyle: { backgroundColor: "#007236" },
+      }}
+    >
+      <ProfileStack.Screen
+        name="Profil"
+        component={ProfileScreen}
+        name="Profil"
+        component={ProfileScreen}
+        options={{
+          title: "Günlük Doz",
+          headerRight: () => (
+            <Information
+              style={{ marginRight: 16 }}
+              onPress={() => alert("This is a button!")}
+            />
+          ),
+        }}
+      />
+      <ProfileStack.Screen name="Detail" component={DetailScreen} />
+    </ProfileStack.Navigator>
   );
 }
 

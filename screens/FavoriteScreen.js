@@ -2,13 +2,35 @@ import * as React from "react";
 import { Text, View } from "react-native";
 import { createStackNavigator } from "@react-navigation/stack";
 import DetailScreen from "./DetailScreen";
+import { Information } from "../components/Icons";
 
 const FavoriteStack = createStackNavigator();
 
 function FavoriteStackScreen() {
   return (
-    <FavoriteStack.Navigator>
-      <FavoriteStack.Screen name="Favoriler" component={FavoriteScreen} />
+    <FavoriteStack.Navigator
+      headerMode="screen"
+      screenOptions={{
+        headerTintColor: "#F9FFDE",
+        headerStyle: { backgroundColor: "#007236" },
+      }}
+    >
+      <FavoriteStack.Screen
+        name="Favoriler"
+        component={FavoriteScreen}
+        name="Profil"
+        name="Profil"
+        component={FavoriteScreen}
+        options={{
+          title: "Günlük Doz",
+          headerRight: () => (
+            <Information
+              style={{ marginRight: 16 }}
+              onPress={() => alert("This is a button!")}
+            />
+          ),
+        }}
+      />
       <FavoriteStack.Screen name="Detail" component={DetailScreen} />
     </FavoriteStack.Navigator>
   );
