@@ -1,10 +1,10 @@
 import * as React from "react";
-import { Ionicons } from "@expo/vector-icons";
 import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import QuoteScreen from "./screens/QuoteScreen";
 import FavoriteScreen from "./screens/FavoriteScreen";
 import ProfileScreen from "./screens/ProfileScreen";
+import { Favorite, User, QuoteFill } from "./components/Icons";
 
 const Tab = createBottomTabNavigator();
 
@@ -15,25 +15,25 @@ export default function App() {
         initialRouteName="Sözler"
         screenOptions={({ route }) => ({
           tabBarIcon: ({ focused, color, size }) => {
-            let iconName;
-
             if (route.name === "Favoriler") {
-              iconName = focused
+              focused
                 ? "ios-information-circle"
                 : "ios-information-circle-outline";
+              return <Favorite size={size} stroke={color} />;
             } else if (route.name === "Sözler") {
-              iconName = focused ? "ios-list-box" : "ios-list";
+              focused ? "ios-list-box" : "ios-list";
+              return <QuoteFill size={size} stroke={color} />;
             } else if (route.name === "Profil") {
-              iconName = focused ? "ios-list-box" : "ios-list";
+              focused ? "ios-list-box" : "ios-list";
+              return <User size={size} stroke={color} />;
             }
 
             // You can return any component that you like here!
-            return <Ionicons name={iconName} size={size} color={color} />;
           },
         })}
         tabBarOptions={{
-          activeTintColor: "tomato",
-          inactiveTintColor: "gray",
+          activeTintColor: "#FF5000",
+          inactiveTintColor: "#F9FFDE",
         }}
       >
         <Tab.Screen name="Favoriler" component={FavoriteScreen} />
