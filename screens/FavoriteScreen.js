@@ -3,6 +3,7 @@ import { Text, View } from "react-native";
 import { createStackNavigator } from "@react-navigation/stack";
 import DetailScreen from "./DetailScreen";
 import { Information } from "../components/Icons";
+import { TouchableOpacity } from "react-native-gesture-handler";
 
 const FavoriteStack = createStackNavigator();
 
@@ -24,10 +25,12 @@ function FavoriteStackScreen() {
         options={{
           title: "Günlük Doz",
           headerRight: () => (
-            <Information
+            <TouchableOpacity
               style={{ marginRight: 16 }}
               onPress={() => alert("This is a button!")}
-            />
+            >
+              <Information />
+            </TouchableOpacity>
           ),
         }}
       />
@@ -38,7 +41,14 @@ function FavoriteStackScreen() {
 
 function FavoriteScreen() {
   return (
-    <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
+    <View
+      style={{
+        flex: 1,
+        justifyContent: "center",
+        alignItems: "center",
+        backgroundColor: "#F9FFDE",
+      }}
+    >
       <Text>Favoriler</Text>
     </View>
   );
