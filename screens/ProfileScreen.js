@@ -4,6 +4,11 @@ import { createStackNavigator } from "@react-navigation/stack";
 import DetailScreen from "./DetailScreen";
 import { Information } from "../components/Icons";
 import { TouchableOpacity } from "react-native-gesture-handler";
+import HeadingMedium from "../components/texts/HeadingMedium";
+import HeadingBold from "../components/texts/HeadingBold";
+import ImageContainer from "../components/containers/ImageContainer";
+import ProfileText from "../components/texts/ProfileText";
+import ProfileTextBold from "../components/texts/ProfileTextBold";
 
 const ProfileStack = createStackNavigator();
 
@@ -43,12 +48,21 @@ function ProfileScreen() {
     <View
       style={{
         flex: 1,
-        justifyContent: "center",
-        alignItems: "center",
         backgroundColor: "#F9FFDE",
       }}
     >
-      <Text>Profil</Text>
+      <HeadingMedium>
+        Merhaba,{"\n"}
+        <HeadingBold>Ali</HeadingBold>
+      </HeadingMedium>
+      <ImageContainer />
+      <ProfileText>
+        Bugün "<ProfileTextBold>Şahsiyet</ProfileTextBold>" dizisindeki "
+        <ProfileTextBold>
+          Vicdan denen şey bağırsak gibidir. Sen uyurken de çalışır.
+        </ProfileTextBold>
+        " sözü gibisin...
+      </ProfileText>
     </View>
   );
 }

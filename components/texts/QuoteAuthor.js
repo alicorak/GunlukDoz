@@ -11,7 +11,7 @@ const QuoteAuthor = styled.Text`
   color: #777777;
 
   margin-top: 18;
-  margin-left: 24;
+
   margin-bottom: 18;
 `;
 export default QuoteAuthor;

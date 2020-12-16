@@ -2,9 +2,9 @@ import React from "react";
 import { Text } from "react-native";
 import styled from "styled-components";
 
-const ProfileText = styled.Text`
+const ProfileTextBold = styled.Text`
   font-style: normal;
-  font-weight: 500;
+  font-weight: 600;
   font-size: 19px;
   line-height: 23px;
   color: #222020;
@@ -13,4 +13,4 @@ const ProfileText = styled.Text`
   margin-left: 24;
   margin-right: 24;
 `;
-export default ProfileText;
+export default ProfileTextBold;

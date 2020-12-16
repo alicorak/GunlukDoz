@@ -147,7 +147,7 @@ export function LeftArrow(props) {
       <G clipPath="url(#prefix__clip0)">
         <Path
           d="M5.16 12c0-.43.164-.86.491-1.188L15.971.492a1.68 1.68 0 112.377 2.377L9.217 12l9.13 9.132a1.68 1.68 0 01-2.376 2.376L5.65 13.188A1.677 1.677 0 015.16 12z"
-          fill="#000"
+          fill="#FF5000"
         />
       </G>
       <Defs>

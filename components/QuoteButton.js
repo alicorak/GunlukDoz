@@ -5,6 +5,7 @@ import styled from "styled-components";
 const QuoteButton = styled.TouchableOpacity`
   border: 1px solid #ff5000;
   border-radius: 5px;
+  margin-horizontal: 4px;
 `;
 
 export default QuoteButton;

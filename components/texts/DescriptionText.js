@@ -7,8 +7,8 @@ const DescriptionText = styled.Text`
   font-weight: 500;
   font-size: 13px;
   line-height: 19px;
-  margin-left: 24;
-  margin-right: 24;
+  margin-left: 24px;
+  margin-right: 24px;
   color: #002411;
 `;
 export default DescriptionText;

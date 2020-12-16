@@ -8,8 +8,5 @@ const BodyText = styled.Text`
   font-size: 22px;
   line-height: 26px;
   color: #222020;
-
-  margin-left: 24;
-  margin-right: 24;
 `;
 export default BodyText;
