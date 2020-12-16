@@ -76,7 +76,7 @@ function QuoteScreen({ navigation }) {
       <ScrollView showsVerticalScrollIndicator={false}>
         <HeadingBold>Günlük{"\n"}dozunu al 💊</HeadingBold>
         <TouchableWithoutFeedback onPress={() => navigation.navigate("Detail")}>
-          <MainContainer onPress={() => navigation.navigate("Detail")}>
+          <MainContainer>
             <Subheading style={{ color: "#F9FFDE", marginBottom: 8 }}>
               İşte günün{"\n"}sana özel sözü
             </Subheading>

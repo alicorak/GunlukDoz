@@ -3,7 +3,7 @@ import { Text, View } from "react-native";
 import { createStackNavigator } from "@react-navigation/stack";
 import DetailScreen from "./DetailScreen";
 import { Information } from "../components/Icons";
-import { TouchableOpacity } from "react-native-gesture-handler";
+import { ScrollView, TouchableOpacity } from "react-native-gesture-handler";
 import HeadingMedium from "../components/texts/HeadingMedium";
 import HeadingBold from "../components/texts/HeadingBold";
 import ImageContainer from "../components/containers/ImageContainer";
@@ -51,18 +51,20 @@ function ProfileScreen() {
         backgroundColor: "#F9FFDE",
       }}
     >
-      <HeadingMedium>
-        Merhaba,{"\n"}
-        <HeadingBold>Ali</HeadingBold>
-      </HeadingMedium>
-      <ImageContainer />
-      <ProfileText>
-        Bugün "<ProfileTextBold>Şahsiyet</ProfileTextBold>" dizisindeki "
-        <ProfileTextBold>
-          Vicdan denen şey bağırsak gibidir. Sen uyurken de çalışır.
-        </ProfileTextBold>
-        " sözü gibisin...
-      </ProfileText>
+      <ScrollView>
+        <HeadingMedium>
+          Merhaba,{"\n"}
+          <HeadingBold>Ali 👋</HeadingBold>
+        </HeadingMedium>
+        <ImageContainer />
+        <ProfileText>
+          Bugün "<ProfileTextBold>Şahsiyet</ProfileTextBold>" dizisindeki "
+          <ProfileTextBold>
+            Vicdan denen şey bağırsak gibidir. Sen uyurken de çalışır.
+          </ProfileTextBold>
+          " sözü gibisin...
+        </ProfileText>
+      </ScrollView>
     </View>
   );
 }

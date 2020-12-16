@@ -1,10 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useCallback } from "react";
 import {
   Alert,
   Modal,
   SafeAreaView,
   StyleSheet,
-  Text,
+  Linking,
   TouchableHighlight,
   View,
 } from "react-native";
@@ -16,8 +16,9 @@ import BookButton from "../components/buttons/BookButton";
 import DiamondButton from "../components/buttons/DiamondButton";
 import DescriptionText from "./texts/DescriptionText";
 import DescriptionHeading from "./texts/DescriptionHeading";
+import PillButton from "./buttons/PillButton";
 
-const ModalView = () => {
+const ModalView = ({ navigation }) => {
   const [modalVisible, setModalVisible] = useState(false);
   return (
     <View>
@@ -31,7 +32,11 @@ const ModalView = () => {
       >
         <SafeAreaView>
           <TouchableHighlight
-            style={{ ...styles.openButton }}
+            style={{
+              backgroundColor: "#F9FFDE",
+              borderRadius: 20,
+              elevation: 2,
+            }}
             onPress={() => {
               setModalVisible(!modalVisible);
             }}
@@ -49,38 +54,80 @@ const ModalView = () => {
               </Subheading>
             </View>
           </TouchableHighlight>
-          <HeadingBold>Günlük{"\n"}Doz</HeadingBold>
-          <View
-            style={{
-              flexDirection: "row",
-              marginLeft: 20, //Button margin-left:4px
-              marginVertical: 24,
-            }}
-          >
-            <MovieButton />
-            <BookButton />
-            <DiamondButton />
+
+          <View style={{ backgroundColor: "#F9FFDE" }}>
+            <HeadingBold>Günlük{"\n"}Doz</HeadingBold>
+
+            <View
+              style={{
+                flexDirection: "row",
+                marginLeft: 20, //Button margin-left:4px
+                marginVertical: 24,
+              }}
+            >
+              <MovieButton />
+              <BookButton />
+            </View>
+            <View
+              style={{
+                marginLeft: 20,
+                marginTop: -16,
+                marginBottom: 24,
+              }}
+            >
+              <DiamondButton />
+            </View>
+            <DescriptionText>
+              Günlük Doz,istediğin zaman sana alıntılar sunan bir uygulama. Hiç
+              bir gelir elde etme amacı yok. Bu nedenle telif talep etmeyin
+              ödeyemem :)
+            </DescriptionText>
+            <PillButton />
+            <DescriptionHeading
+              style={{ marginHorizontal: 24, marginVertical: 24 }}
+            >
+              Hakkında Daha Fazlası
+            </DescriptionHeading>
+            <DescriptionText>
+              Tasarımı{" "}
+              <DescriptionText
+                style={{ color: "#FF5000" }}
+                onPress={() =>
+                  Linking.openURL("https://www.figma.com/@alicorak")
+                }
+              >
+                Figma Community
+              </DescriptionText>
+              , yazılımı{" "}
+              <DescriptionText
+                style={{ color: "#FF5000" }}
+                onPress={() =>
+                  Linking.openURL("https://www.github.com/alicorak")
+                }
+              >
+                GitHub
+              </DescriptionText>{" "}
+              üzerinden tamamen açık kaynaklı 🖤 {"\n"}
+              {"\n"}
+              <DescriptionText
+                style={{ color: "#FF5000" }}
+                onPress={() => Linking.openURL("https://alicorak.com")}
+              >
+                Ali ÇORAK
+              </DescriptionText>{" "}
+              tarafından tasarlandı ve kodlandı.
+            </DescriptionText>
           </View>
-          <DescriptionText>
-            Günlük Doz,istediğin zaman sana alıntılar sunan bir uygulama. Hiç
-            bir gelir elde etme amacı yok. Bu nedenle telif talep etmeyin
-            ödeyemem :)
-          </DescriptionText>
-          <DescriptionHeading
-            style={{ marginHorizontal: 24, marginVertical: 24 }}
-          >
-            Hakkında Daha Fazlası
-          </DescriptionHeading>
-          <DescriptionText>
-            Tasarımı Figma Community, yazılımı GitHub üzerinden tamamen açık
-            kaynaklı 🖤 {"\n"}
-            {"\n"}Ali ÇORAK tarafından tasarlandı ve kodlandı.
-          </DescriptionText>
         </SafeAreaView>
       </Modal>
 
       <TouchableHighlight
-        style={styles.openButton}
+        style={{
+          backgroundColor: "#007236",
+          borderRadius: 20,
+          padding: 10,
+          elevation: 2,
+        }}
         onPress={() => {
           setModalVisible(true);
         }}
@@ -92,12 +139,7 @@ const ModalView = () => {
 };
 
 const styles = StyleSheet.create({
-  openButton: {
-    backgroundColor: "#007236",
-    borderRadius: 20,
-    padding: 10,
-    elevation: 2,
-  },
+  openButton: {},
 });
 
 export default ModalView;

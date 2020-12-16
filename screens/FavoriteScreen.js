@@ -5,7 +5,6 @@ import DetailScreen from "./DetailScreen";
 import { Information } from "../components/Icons";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import ModalView from "../components/ModalView";
-
 const FavoriteStack = createStackNavigator();
 
 function FavoriteStackScreen() {

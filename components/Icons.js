@@ -162,8 +162,8 @@ export function LeftArrow(props) {
 export function Pill(props) {
   return (
     <Svg
-      width={24}
-      height={24}
+      width={18}
+      height={18}
       viewBox="0 0 24 24"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
@@ -172,12 +172,12 @@ export function Pill(props) {
       <G clipPath="url(#prefix__clip0)">
         <Path
           d="M16.91 0a7.042 7.042 0 00-5.014 2.077l-9.819 9.818A7.047 7.047 0 000 16.91C0 20.82 3.181 24 7.09 24a7.04 7.04 0 005.014-2.077l9.819-9.817A7.043 7.043 0 0024 7.09C24 3.18 20.82 0 16.91 0zM7.663 10.937l-3.273 3.272a3.794 3.794 0 00-1.118 2.7.545.545 0 11-1.091 0c0-1.311.51-2.544 1.438-3.471l3.273-3.273a.545.545 0 11.771.772zm12.716-.374l-4.523 4.523-6.942-6.943 4.523-4.524a4.875 4.875 0 013.471-1.437 4.914 4.914 0 014.91 4.909c0 1.311-.511 2.544-1.439 3.472z"
-          fill="#000"
+          fill="#F9FFDE"
         />
       </G>
       <Defs>
         <ClipPath id="prefix__clip0">
-          <Path fill="#fff" d="M0 0h24v24H0z" />
+          <Path fill="#F9FFDE" d="M0 0h24v24H0z" />
         </ClipPath>
       </Defs>
     </Svg>
