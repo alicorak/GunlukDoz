@@ -5,9 +5,19 @@ import DetailScreen from "./DetailScreen";
 import { Information } from "../components/Icons";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import ModalView from "../components/ModalView";
+import AppModal from "../components/AppModal";
+import { useNavigation } from "@react-navigation/native";
+
 const FavoriteStack = createStackNavigator();
+let popUpRef = React.createRef();
 
 function FavoriteStackScreen() {
+  const navigation = useNavigation();
+
+  const onShowPopUp = () => {
+    popUpRef.setModalVisible();
+  };
+
   return (
     <FavoriteStack.Navigator
       headerMode="screen"
@@ -20,15 +30,11 @@ function FavoriteStackScreen() {
         name="Favoriler"
         component={FavoriteScreen}
         name="Profil"
-        name="Profil"
         component={FavoriteScreen}
         options={{
           title: "Günlük Doz",
           headerRight: () => (
-            <TouchableOpacity
-              style={{ marginRight: 16 }}
-              onPress={() => alert("This is a button!")}
-            >
+            <TouchableOpacity style={{ marginRight: 16 }} onPress={onShowPopUp}>
               <Information />
             </TouchableOpacity>
           ),
@@ -51,6 +57,7 @@ function FavoriteScreen() {
     >
       <Text>Favoriler</Text>
       <ModalView />
+      <AppModal ref={(target) => (popUpRef = target)} />
     </View>
   );
 }

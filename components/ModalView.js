@@ -7,6 +7,7 @@ import {
   Linking,
   TouchableHighlight,
   View,
+  Text,
 } from "react-native";
 import { Information, LeftArrow } from "../components/Icons";
 import Subheading from "../components/texts/Subheading";
@@ -18,11 +19,12 @@ import DescriptionText from "./texts/DescriptionText";
 import DescriptionHeading from "./texts/DescriptionHeading";
 import PillButton from "./buttons/PillButton";
 
-const ModalView = ({ navigation }) => {
+const ModalView = () => {
   const [modalVisible, setModalVisible] = useState(false);
   return (
     <View>
       <Modal
+        name="AppModal"
         animationType="slide"
         transparent={true}
         visible={modalVisible}
