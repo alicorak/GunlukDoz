@@ -9,9 +9,6 @@ const QuoteAuthor = styled.Text`
   line-height: 18px;
   text-transform: uppercase;
   color: #777777;
-
-  margin-top: 18;
-  margin-left: 24;
-  margin-bottom: 18;
+  margin-top: 15;
 `;
 export default QuoteAuthor;
