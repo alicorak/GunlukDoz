@@ -9,10 +9,19 @@ import HeadingBold from "../components/texts/HeadingBold";
 import ImageContainer from "../components/containers/ImageContainer";
 import ProfileText from "../components/texts/ProfileText";
 import ProfileTextBold from "../components/texts/ProfileTextBold";
+import AppModal from "../components/AppModal";
+import { useNavigation } from "@react-navigation/native";
 
 const ProfileStack = createStackNavigator();
+let popUpRef = React.createRef();
 
 function ProfileStackScreen() {
+  const navigation = useNavigation();
+
+  const onShowPopUp = () => {
+    popUpRef.setModalVisible();
+  };
+
   return (
     <ProfileStack.Navigator
       headerMode="screen"
@@ -29,11 +38,8 @@ function ProfileStackScreen() {
         options={{
           title: "Günlük Doz",
           headerRight: () => (
-            <TouchableOpacity
-              style={{ marginRight: 16 }}
-              onPress={() => alert("This is a button!")}
-            >
-              <Information />
+            <TouchableOpacity style={{ marginRight: 6 }} onPress={onShowPopUp}>
+              <AppModal ref={(target) => (popUpRef = target)} />
             </TouchableOpacity>
           ),
         }}
