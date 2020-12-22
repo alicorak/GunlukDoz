@@ -1,12 +1,15 @@
 import * as React from "react";
-import { Text, View } from "react-native";
+import { View } from "react-native";
 import { createStackNavigator } from "@react-navigation/stack";
 import DetailScreen from "./DetailScreen";
-import { Information } from "../components/Icons";
-import { TouchableOpacity } from "react-native-gesture-handler";
-import ModalView from "../components/ModalView";
+import { ScrollView, TouchableOpacity } from "react-native-gesture-handler";
 import AppModal from "../components/AppModal";
 import { useNavigation } from "@react-navigation/native";
+import MovieButton from "../components/buttons/MovieButton";
+import BookButton from "../components/buttons/BookButton";
+import DiamondButton from "../components/buttons/DiamondButton";
+import HeadingBold from "../components/texts/HeadingBold";
+import SavedContainer from "../components/containers/SavedContainer";
 
 const FavoriteStack = createStackNavigator();
 let popUpRef = React.createRef();
@@ -34,8 +37,8 @@ function FavoriteStackScreen() {
         options={{
           title: "Günlük Doz",
           headerRight: () => (
-            <TouchableOpacity style={{ marginRight: 16 }} onPress={onShowPopUp}>
-              <Information />
+            <TouchableOpacity style={{ marginRight: 6 }} onPress={onShowPopUp}>
+              <AppModal ref={(target) => (popUpRef = target)} />
             </TouchableOpacity>
           ),
         }}
@@ -50,14 +53,37 @@ function FavoriteScreen() {
     <View
       style={{
         flex: 1,
-        justifyContent: "center",
-        alignItems: "center",
         backgroundColor: "#F9FFDE",
       }}
     >
-      <Text>Favoriler</Text>
-      <ModalView />
-      <AppModal ref={(target) => (popUpRef = target)} />
+      <View>
+        <HeadingBold>Favorilerim</HeadingBold>
+
+        <ScrollView
+          horizontal={true}
+          showsHorizontalScrollIndicator={false}
+          style={{
+            marginBottom: 16,
+          }}
+        >
+          <View
+            flexDirection="row"
+            style={{
+              marginHorizontal: 24,
+            }}
+          >
+            <MovieButton />
+            <BookButton />
+            <DiamondButton />
+          </View>
+        </ScrollView>
+        <ScrollView style={{ height: "100%" }}>
+          <SavedContainer />
+          <SavedContainer />
+          <SavedContainer />
+          <SavedContainer />
+        </ScrollView>
+      </View>
     </View>
   );
 }
