@@ -6,6 +6,8 @@ import {
 } from "react-native-gesture-handler";
 import { View, Button, Text } from "react-native";
 import { createStackNavigator } from "@react-navigation/stack";
+import AppModal from "../components/AppModal";
+import { useNavigation } from "@react-navigation/native";
 
 //Components
 
@@ -25,8 +27,15 @@ import Subheading from "../components/texts/Subheading";
 //Stack-start
 
 const QuoteStack = createStackNavigator();
+let popUpRef = React.createRef();
 
 function QuoteStackScreen() {
+  const navigation = useNavigation();
+
+  const onShowPopUp = () => {
+    popUpRef.setModalVisible();
+  };
+
   return (
     <QuoteStack.Navigator
       headerMode="screen"
@@ -41,11 +50,8 @@ function QuoteStackScreen() {
         options={{
           title: "Günlük Doz",
           headerRight: () => (
-            <TouchableOpacity
-              style={{ marginRight: 16 }}
-              onPress={() => alert("This is a button!")}
-            >
-              <Information />
+            <TouchableOpacity style={{ marginRight: 6 }} onPress={onShowPopUp}>
+              <AppModal ref={(target) => (popUpRef = target)} />
             </TouchableOpacity>
           ),
         }}
