@@ -4,7 +4,8 @@ import styled from "styled-components";
 import DescriptionText from "../texts/DescriptionHeading";
 import QuoteAuthorSmall from "../texts/QuoteAuthorSmall";
 
-function ImageContainer() {
+function SavedContainer(props) {
+  const favorite = props.favorite;
   return (
     <View
       style={{
@@ -20,8 +21,7 @@ function ImageContainer() {
       <View flexDirection="row" justifyContent="space-between">
         <Image
           source={{
-            uri:
-              "https://static.birgun.net/resim/haber-detay-resim/2018/11/19/sahsiyet-dizisi-dunya-listesinde-532575-5.jpg",
+            uri: favorite.image,
           }}
           style={{
             minHeight: "100%",
@@ -38,11 +38,10 @@ function ImageContainer() {
           }}
         >
           <DescriptionText numberOfLines={2} ellipsizeMode="tail">
-            Bir şeyi basitçe açıklayamıyorsan; yeterince iyi anlamamışsın
-            demektir.
+            {favorite.quote}
           </DescriptionText>
           <QuoteAuthorSmall numberOfLines={1} ellipsizeMode="tail">
-            Albert Einstein
+            {favorite.author}
           </QuoteAuthorSmall>
         </View>
       </View>
@@ -50,4 +49,4 @@ function ImageContainer() {
   );
 }
 
-export default ImageContainer;
+export default SavedContainer;

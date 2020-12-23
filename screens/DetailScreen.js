@@ -3,6 +3,9 @@ import { View } from "react-native";
 import DiamondButton from "../components/buttons/DiamondButton";
 import BodyText from "../components/texts/BodyText";
 import QuoteAuthor from "../components/texts/QuoteAuthor";
+import feed from "../data/feed";
+
+const quote = feed[0];
 
 function DetailScreen() {
   return (
@@ -26,9 +29,9 @@ function DetailScreen() {
             marginBottom: 18,
           }}
         >
-          Bir şeyi basitçe açıklayamıyorsan, yeterince anlamamışsın demektir.
+          {quote.quote}
         </BodyText>
-        <QuoteAuthor>Albert Einstein</QuoteAuthor>
+        <QuoteAuthor>{quote.author}</QuoteAuthor>
       </View>
     </View>
   );

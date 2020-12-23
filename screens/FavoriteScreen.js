@@ -1,5 +1,5 @@
 import * as React from "react";
-import { View } from "react-native";
+import { View, FlatList } from "react-native";
 import { createStackNavigator } from "@react-navigation/stack";
 import DetailScreen from "./DetailScreen";
 import { ScrollView, TouchableOpacity } from "react-native-gesture-handler";
@@ -10,6 +10,7 @@ import BookButton from "../components/buttons/BookButton";
 import DiamondButton from "../components/buttons/DiamondButton";
 import HeadingBold from "../components/texts/HeadingBold";
 import SavedContainer from "../components/containers/SavedContainer";
+import feed from "../data/feed";
 
 const FavoriteStack = createStackNavigator();
 let popUpRef = React.createRef();
@@ -77,12 +78,11 @@ function FavoriteScreen() {
             <DiamondButton />
           </View>
         </ScrollView>
-        <ScrollView style={{ height: "100%" }}>
-          <SavedContainer />
-          <SavedContainer />
-          <SavedContainer />
-          <SavedContainer />
-        </ScrollView>
+        <FlatList
+          showsHorizontalScrollIndicator={false}
+          data={feed}
+          renderItem={({ item }) => <SavedContainer favorite={item} />}
+        />
       </View>
     </View>
   );
